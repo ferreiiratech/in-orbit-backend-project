@@ -1,0 +1,13 @@
+name: "in-orbit-docker"
+version: '3.8'
+
+services:
+  database-in-orbit:
+    image: postgres:13-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=in-orbit
+
