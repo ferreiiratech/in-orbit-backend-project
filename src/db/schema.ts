@@ -8,3 +8,13 @@ export const goals = pgTable("tb_goals", {
     .notNull()
     .defaultNow(),
 })
+
+export const goalCompletions = pgTable("tb_goal_completions", {
+  id: text("id").primaryKey(),
+  goalId: text("goal_id")
+    .references(() => goals.id)
+    .notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+})
